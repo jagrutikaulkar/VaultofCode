@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Resume Builder</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Interactive Resume Builder</h1>
+        
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        
+        <div class="form-container">
+            <form id="resumeForm">
+                <div class="form-section">
+                    <h2>Personal Information</h2>
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="(123) 456-7890">
+                    </div>
+                    <div class="form-group">
+                        <label for="summary">Professional Summary</label>
+                        <textarea id="summary" rows="4" placeholder="Experienced professional with..."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2>Education</h2>
+                    <div id="educationFields">
+                        <div class="education-entry">
+                            <div class="form-group">
+                                <label>Institution</label>
+                                <input type="text" class="institution" placeholder="University Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Degree</label>
+                                <input type="text" class="degree" placeholder="Bachelor of Science">
+                            </div>
+                            <div class="form-group">
+                                <label>Field of Study</label>
+                                <input type="text" class="field" placeholder="Computer Science">
+                            </div>
+                            <div class="form-group">
+                                <label>Graduation Year</label>
+                                <input type="text" class="year" placeholder="2020">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="add-btn" id="addEducation">+ Add Education</button>
+                </div>
+
+                <div class="form-section">
+                    <h2>Work Experience</h2>
+                    <div id="experienceFields">
+                        <div class="experience-entry">
+                            <div class="form-group">
+                                <label>Job Title</label>
+                                <input type="text" class="job-title" placeholder="Software Developer" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Company</label>
+                                <input type="text" class="company" placeholder="Tech Corp Inc.">
+                            </div>
+                            <div class="form-group">
+                                <label>Duration</label>
+                                <input type="text" class="duration" placeholder="2018 - Present">
+                            </div>
+                            <div class="form-group">
+                                <label>Responsibilities</label>
+                                <textarea class="responsibilities" rows="3" placeholder="Developed web applications..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="add-btn" id="addExperience">+ Add Experience</button>
+                </div>
+
+                <div class="form-section">
+                    <h2>Skills</h2>
+                    <div class="skills-container">
+                        <div class="skill-option">
+                            <input type="checkbox" id="html" value="HTML">
+                            <label for="html">HTML</label>
+                        </div>
+                        <div class="skill-option">
+                            <input type="checkbox" id="css" value="CSS">
+                            <label for="css">CSS</label>
+                        </div>
+                        <div class="skill-option">
+                            <input type="checkbox" id="javascript" value="JavaScript">
+                            <label for="javascript">JavaScript</label>
+                        </div>
+                        <div class="skill-option">
+                            <input type="checkbox" id="react" value="React">
+                            <label for="react">React</label>
+                        </div>
+                        <div class="skill-option">
+                            <input type="checkbox" id="node" value="Node.js">
+                            <label for="node">Node.js</label>
+                        </div>
+                        <div class="skill-option">
+                            <input type="checkbox" id="python" value="Python">
+                            <label for="python">Python</label>
+                        </div>
+                        <div class="skill-option">
+                            <input type="checkbox" id="java" value="Java">
+                            <label for="java">Java</label>
+                        </div>
+                        <div class="skill-option">
+                            <input type="checkbox" id="git" value="Git">
+                            <label for="git">Git</label>
+                        </div>
+                        <div class="skill-option">
+                            <input type="checkbox" id="sql" value="SQL">
+                            <label for="sql">SQL</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="otherSkills">Other Skills (comma separated)</label>
+                        <input type="text" id="otherSkills" placeholder="Project Management, Public Speaking">
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" id="clearForm" class="btn secondary">Clear Form</button>
+                    <button type="button" id="downloadPDF" class="btn primary">Download PDF</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="resume-container">
+            <h2>Resume Preview</h2>
+            <div class="resume" id="resumePreview">
+                <div class="resume-header">
+                    <h1 id="resumeName">Your Name</h1>
+                    <div class="contact-info">
+                        <p id="resumeEmail">email@example.com</p>
+                        <p id="resumePhone">(123) 456-7890</p>
+                    </div>
+                </div>
+                
+                <div class="resume-section">
+                    <h3>Professional Summary</h3>
+                    <p id="resumeSummary">Experienced professional with a diverse skill set...</p>
+                </div>
+                
+                <div class="resume-section">
+                    <h3>Education</h3>
+                    <div id="resumeEducation">
+                        <div class="education-item">
+                            <h4>University Name</h4>
+                            <p class="degree">Bachelor of Science in Computer Science</p>
+                            <p class="year">Graduated: 2020</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="resume-section">
+                    <h3>Work Experience</h3>
+                    <div id="resumeExperience">
+                        <div class="experience-item">
+                            <h4>Software Developer</h4>
+                            <p class="company">Tech Corp Inc.</p>
+                            <p class="duration">2018 - Present</p>
+                            <p class="responsibilities">Developed web applications using modern frameworks...</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="resume-section">
+                    <h3>Skills</h3>
+                    <div class="skills-list" id="resumeSkills">
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
