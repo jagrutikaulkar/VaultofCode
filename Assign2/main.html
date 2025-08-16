@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internship Programs</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Our Internship Programs</h1>
+    <p class="subtitle">Choose a program and start your journey with us 🚀</p>
+
+    <div class="cards">
+
+      <!-- Card 1 -->
+      <div class="card">
+        <h2>Web Development Internship</h2>
+        <ul>
+          <li>Duration: 1 month / 2 months</li>
+          <li>Location: Virtual</li>
+          <li>Stipend: -</li>
+          <li>Start Date: 05/11/2023</li>
+        </ul>
+        <button class="btn" onclick="openModal('Web Development Internship')">View Details</button>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <h2>App Development Internship</h2>
+        <ul>
+          <li>Duration: 1 month / 2 months</li>
+          <li>Location: Virtual</li>
+          <li>Stipend: -</li>
+          <li>Start Date: 05/11/2023</li>
+        </ul>
+        <button class="btn" onclick="openModal('App Development Internship')">View Details</button>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <h2>Python Programming Internship</h2>
+        <ul>
+          <li>Duration: 1 month / 2 months</li>
+          <li>Location: Virtual</li>
+          <li>Stipend: -</li>
+          <li>Start Date: 05/11/2023</li>
+        </ul>
+        <button class="btn" onclick="openModal('Python Programming Internship')">View Details</button>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card">
+        <h2>Java Programming Internship</h2>
+        <ul>
+          <li>Duration: 1 month / 2 months</li>
+          <li>Location: Virtual</li>
+          <li>Stipend: -</li>
+          <li>Start Date: 05/11/2023</li>
+        </ul>
+        <button class="btn" onclick="openModal('Java Programming Internship')">View Details</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <p>
+        This internship provides hands-on training with real-world projects.  
+        You will learn from experienced mentors and build industry-level skills.  
+        <br><br>
+        ✅ Certificate Provided <br>
+        ✅ Flexible Schedule <br>
+        ✅ Mentorship Support  
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // Open Modal
+    function openModal(title) {
+      document.getElementById('modal').style.display = "block";
+      document.getElementById('modalTitle').innerText = title;
+    }
+
+    // Close Modal
+    function closeModal() {
+      document.getElementById('modal').style.display = "none";
+    }
+
+    // Close if user clicks outside modal
+    window.onclick = function(event) {
+      const modal = document.getElementById('modal');
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>
