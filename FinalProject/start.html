@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizMaster Pro - Advanced Quiz Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+                <span>QuizMaster Pro</span>
+            </div>
+            <div id="user-info" class="user-info">
+                <i class="fas fa-user"></i>
+                <span id="username-display">Guest</span>
+            </div>
+        </div>
+
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="screen active">
+            <div class="welcome-content">
+                <div class="welcome-header">
+                    <h1 class="bounce-in">QuizMaster Pro</h1>
+                    <p class="fade-in">Test your knowledge with our interactive quiz platform!</p>
+                </div>
+                <div class="input-group slide-in">
+                    <div class="input-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <input type="text" id="username" placeholder="Enter your name" maxlength="15">
+                    <span id="name-error" class="error"></span>
+                </div>
+                <button id="start-btn" class="btn pulse">
+                    <i class="fas fa-play"></i>
+                    Start Quiz
+                </button>
+                
+                <div class="features">
+                    <div class="feature">
+                        <i class="fas fa-trophy"></i>
+                        <h3>Challenge Yourself</h3>
+                        <p>Test your knowledge across multiple categories</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-clock"></i>
+                        <h3>Timed Questions</h3>
+                        <p>Answer questions before time runs out</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-chart-bar"></i>
+                        <h3>Track Progress</h3>
+                        <p>Review your performance with detailed analytics</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz Selection Screen -->
+        <div id="selection-screen" class="screen">
+            <div class="selection-content">
+                <h1 class="slide-in">Choose a Quiz</h1>
+                <p class="category-subtitle">Select a category to begin your challenge</p>
+                
+                <div class="quiz-cards">
+                    <div class="quiz-card flip-in" data-category="general">
+                        <div class="card-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>General Knowledge</h3>
+                        <p>10 questions about various topics</p>
+                        <div class="difficulty">
+                            <span class="diff-easy">Easy</span>
+                        </div>
+                    </div>
+                    <div class="quiz-card flip-in" data-category="science">
+                        <div class="card-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3>Science & Nature</h3>
+                        <p>10 questions about science</p>
+                        <div class="difficulty">
+                            <span class="diff-medium">Medium</span>
+                        </div>
+                    </div>
+                    <div class="quiz-card flip-in" data-category="history">
+                        <div class="card-icon">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <h3>History</h3>
+                        <p>10 questions about historical events</p>
+                        <div class="difficulty">
+                            <span class="diff-hard">Hard</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="selection-actions">
+                    <button id="back-btn" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i>
+                        Back
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quiz-screen" class="screen">
+            <div class="quiz-header">
+                <div class="quiz-info">
+                    <h2 id="quiz-category">General Knowledge</h2>
+                    <div id="progress-bar">
+                        <div id="progress"></div>
+                    </div>
+                </div>
+                <div class="quiz-stats">
+                    <span id="question-count">Question 1 of 10</span>
+                    <span id="timer">00:30</span>
+                    <span id="score-display">Score: 0</span>
+                </div>
+            </div>
+
+            <div class="question-container">
+                <h3 id="question-text">Question goes here</h3>
+                <div id="options-container" class="options">
+                    <!-- Options will be inserted here -->
+                </div>
+            </div>
+
+            <div class="quiz-footer">
+                <button id="next-btn" class="btn">
+                    Next Question
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                <button id="quit-btn" class="btn btn-secondary">
+                    <i class="fas fa-times"></i>
+                    Quit Quiz
+                </button>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="results-screen" class="screen">
+            <div class="results-content">
+                <h1 class="zoom-in">Quiz Results</h1>
+                <p class="results-subtitle">Your performance summary</p>
+                
+                <div class="score-container">
+                    <div class="score-circle">
+                        <span id="score-value">0</span>
+                        <span id="score-percentage">%</span>
+                    </div>
+                    <p id="score-message">Well done!</p>
+                    
+                    <div class="score-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Correct Answers</span>
+                            <span id="correct-answers" class="detail-value">0/10</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Time Spent</span>
+                            <span id="time-spent" class="detail-value">00:00</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Category</span>
+                            <span id="result-category" class="detail-value">General Knowledge</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="results-actions">
+                    <button id="restart-btn" class="btn">
+                        <i class="fas fa-redo"></i>
+                        Try Another Quiz
+                    </button>
+                    <button id="review-btn" class="btn btn-secondary">
+                        <i class="fas fa-list"></i>
+                        Review Answers
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Review Screen -->
+        <div id="review-screen" class="screen">
+            <div class="review-content">
+                <h1 class="slide-in">Review Answers</h1>
+                <p class="review-subtitle">Check where you did well and where you can improve</p>
+                
+                <div id="review-container" class="review-container">
+                    <!-- Review items will be inserted here -->
+                </div>
+                
+                <div class="review-actions">
+                    <button id="back-to-results" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i>
+                        Back to Results
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Confirmation Modal -->
+        <div id="confirmation-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-icon">
+                    <i class="fas fa-exclamation-circle"></i>
+                </div>
+                <h3>Are you sure?</h3>
+                <p>Your progress will be lost if you quit the quiz.</p>
+                <div class="modal-actions">
+                    <button id="confirm-quit" class="btn btn-danger">
+                        <i class="fas fa-times"></i>
+                        Quit
+                    </button>
+                    <button id="cancel-quit" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i>
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
